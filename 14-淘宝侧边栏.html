@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jscl.js"></script>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0;
+    }
+    .big{
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        box-sizing: border-box;
+    }
+    .bian{
+        position: absolute;
+        top: 85%;
+       right: 0;
+        width: 50px;
+        height: 100px;
+        background-color: aqua;
+    }
+    .red{
+        height: 600px;
+        background-color: red;
+        opacity: 0.3;
+    }
+    .yellow{
+        height: 900px;
+        background-color: yellow;
+        margin-top: 10px;
+        opacity: 0.3;
+    }
+    .green{
+        height: 800px;
+        background-color: green;
+        margin-top: 10px;
+        opacity: 0.3;
+    }
+    .bian span:last-of-type{
+        display: none;
+    }
+</style>
+<body>
+    <div class="big">
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div class="green"></div>
+        <div class="bian"><span class="one">详情</span><span class="two">返回顶部</span></div>
+    </div>
+</body>
+<script>
+    // window.addEventListener('load',function(){
+    //     var body = document.body;
+    //     var shi = body.clientWidth;
+    //     console.log('shi'+shi);
+    // });
+    var bian = document.querySelector('.bian');//获取侧边
+    var big = document.querySelector('.big');//获取主体
+    var two = document.querySelector('.two');//返回的
+    var one = document.querySelector('.one');//之前的
+    document.addEventListener('scroll',function(){
+        if(window.pageYOffset>=530){
+            bian.style.position='fixed';
+            bian.style.top='10px';
+            one.style.display='none';
+            two.style.display='block';
+        }else{
+            bian.style.position='absolute';
+            // bian.style.top='10px';
+            bian.removeAttribute('style');
+            one.style.display='block';
+            two.style.display='none';
+        }
+    })
+    two.addEventListener('click',function(){
+        move_xy(this,0);
+    //   var ts = setInterval(function(){
+
+    //    var t_index = window.pageYOffset;//距离顶部距离
+    // console.log(t_index);
+    //     t_index = (0-(t_index-0))/10;//每次的距离
+
+    //     t_index = t_index>0?Math.ceil(t_index):Math.floor(t_index);
+
+    //     console.log(t_index);
+    //     if(window.pageYOffset==0){
+    //         clearInterval(ts);
+    //     }
+    //     window.scroll(0,window.pageYOffset-0+t_index);
+    //   },15);
+     
+    })
+</script>
+</html>

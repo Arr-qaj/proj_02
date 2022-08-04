@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* *{
+        margin: 0;
+        top: 0;
+    } */
+    .six{
+        position: relative;
+        width: 350px;
+        height:350px;
+        cursor: move;
+        margin: 50px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    /* img{
+        /* width: 100%; 
+        display: block;
+    } */
+    .yellow{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        display: none;
+    }
+    .one{
+        width: 500px;
+        height: 500px;
+        background-color: #fff;
+        border: 1px gray solid;
+        position: absolute;
+        top: 0;
+        left: 460px;
+        /* margin-left: px; */
+        display: none;
+        overflow: hidden;
+    }
+    .one img{
+        position: absolute;
+        left: 0;
+        left: 0;
+    }
+</style>
+<body>
+    <div class="six">
+        <img src="../JavaScript使用/img/6bfb440c92c75b2f.jpg" alt="">
+        <div class="yellow"></div>
+    </div>
+    <div class="one">
+        <img src="../JavaScript使用/img/6bfb440c92c75b2f1.jpg" alt="" srcset="" id="big_img">
+    </div>
+</body>
+<script>
+    var img  = document.querySelector('.six');
+    var yellow = document.querySelector('.yellow');
+    var one = document.querySelector('.one');
+    var big_img = document.querySelector('#big_img');
+    //1.当鼠标移上去的时候 让两个盒子显示出来 
+    img.addEventListener('mouseover',function(){
+        yellow.style.display='block';
+        one.style.display='block';
+    });
+    //3.当鼠标移出盒子后关闭效果
+    img.addEventListener('mouseout',function(){
+        yellow.style.display='none';
+        one.style.display='none';
+    });
+    //2.当鼠标移动时两个 盒子跟随移动 
+    img.addEventListener('mousemove',function(e){
+      var x = e.pageX-img.offsetLeft;
+      var y = e.pageY-img.offsetTop; 
+      //使光标在黄盒子中居中
+      var masK = x-(yellow.offsetWidth/2);
+      var masY = y-(yellow.offsetHeight/2);
+      //判断黄盒子的移动距离 如果为0 表示到底了 如果超出它的最的移动距离 就不让它移动 了、
+      //img.offsetWidth-yellow.offsetWidth 最大移动距离
+      if(masK<=0){
+        yellow.style.left=0+'px';
+      }else if(masK>=(img.offsetWidth-yellow.offsetWidth)){
+        yellow.style.left=(img.offsetWidth-yellow.offsetWidth)+'px';
+      }else{
+        yellow.style.left=masK+'px';
+     
+      }
+      if(masY<=0){
+        yellow.style.top=0+'px';
+      }else if(masY>=(img.offsetHeight-yellow.offsetHeight)){
+        yellow.style.top=(img.offsetHeight-yellow.offsetHeight)+'px';
+      }else{
+         yellow.style.top=masY+'px';
+      }     
+      //算大图的最大移动距离
+      var img_move = big_img.offsetWidth - one.offsetWidth;
+      //大图的移动距离
+      var bigX =masK * img_move / (img.offsetWidth-yellow.offsetWidth);
+      var bigY =masY * img_move / (img.offsetWidth-yellow.offsetWidth); 
+      console.log(bigX+'  '+bigY);
+      if(bigX<=0){
+        big_img.style.left=0+'px';
+      }else if(bigX=>img_move){
+        big_img.style.left=-img_move+'px';
+      }else{
+         big_img.style.left=-bigX+'px';
+      }
+      if(bigY<=0){
+        big_img.style.top=0+'px';
+      }else if(bigY=>img_move){
+        big_img.style.top=-img_move+'px';
+      }else{
+
+        big_img.style.top=-bigY+'px';
+      }
+     
+   });
+</script>
+</html>

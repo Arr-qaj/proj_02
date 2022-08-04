@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bian_se{
+        list-style: initial;
+        color: red;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+   img{
+    width: 100%;
+    display: block;
+    cursor: pointer;
+   }
+    .big{
+        width: 590px;
+        height: 470px;
+    
+        /* border: 1px solid red; */
+        overflow: hidden;
+        margin: auto;
+        position: relative;
+    }
+    .big_r{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        content: '';
+        height: 470px;
+        width: 100px;
+        display: inline;
+        background: linear-gradient(to left,#fff,black);
+        opacity: 0.5;
+        display: none;
+        cursor: pointer;
+    }
+    .big_l{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        content: '';
+        height: 470px; 
+        width: 100px;
+        display: inline;
+        background: linear-gradient(to left,black,#fff);
+        opacity: 0.5;
+        display: none;
+        cursor: pointer;
+    }
+    .nms{
+        width: 600%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .nms li{
+       
+        list-style: none;
+        float: left;
+        height: 550px;
+         width: 590px;
+    }
+    .cnm{
+        cursor: pointer;
+        color: #fff;
+        /* background-color: aqua; */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style:circle;
+        font-size: 30px;
+       bottom: 10px;
+        z-index: 8;
+    }
+    .cnm li{
+        margin-left: 30px;
+        float: left;
+    }
+</style>
+<body>
+    <div class="big">
+        <div href="" class="big_r"></div>
+        <div href="" class="big_l"></div>
+        <ul class="cnm">
+          
+        </ul>
+        <ul class="nms">
+            <li>
+                <img src="./img/轮播/02fc9b55ae8aea95.jpg.webp" alt="" srcset="">
+            </li>
+            <li>
+                <img src="./img/轮播/908e5a0e2057a779.jpg (1).webp" alt="" srcset="">
+            </li>
+            <li>
+                <img src="./img/轮播/bd5ff4040249b6fa.jpg.webp" alt="" srcset="">
+            </li>
+          <li>
+            <img src="./img/轮播/q.jpg" alt="" srcset="">
+          </li>
+        </ul>
+    </div>
+</body>
+<script src="./js/jscl.js"></script>
+<script src="./js/lb.js"></script>
+</html>

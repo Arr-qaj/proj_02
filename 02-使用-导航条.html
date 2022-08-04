@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=" IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉框</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+        /* padding: 20px; */
+        float: left;
+        padding: 9px;
+        
+    }
+    .div_s{
+        height: 40px;
+        background-color: pink;
+
+    }
+    .red{
+        background-color: red;
+        color: #fff;
+    }
+    .no_div{
+        position: relative;
+    }
+    .no_div div{
+        display: none;
+        font-size: 14px;
+        border: 1px solid black;
+        padding: 5px;
+        width: 60px;
+    }
+    .s{
+        display: block !important;
+    }
+   .div_s ul li ul li{
+    width: 60px;
+        margin-left: -15px;
+        display: none;
+    font-size: 12px;
+   }
+   .ds1{
+    margin-left: 35px;
+   }
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="div_s">
+                <ul >
+                    <li index="0" class="ds1">微博
+                        <ul>
+                            <li>微博内容</li>
+                        </ul>
+                    </li>
+                    <li index="1" class="ds1">导航
+                        <ul>
+                            <li>导航内容</li>
+                        </ul>
+                    </li>
+                    <li index="2" class="ds1">图片
+                        <ul>
+                            <li>图片内容</li>
+                        </ul>
+                    </li>
+                    <li index="3" class="ds1">专栏
+                        <ul>
+                            <li>专栏内容</li>
+                        </ul>
+                    </li>
+                </ul>
+              
+            </div>
+           
+           
+        </nav>
+    </header>
+</body>
+<script>
+    var lis = document.querySelector('.div_s').firstElementChild.children;
+    for(var i=0;i<lis.length;i++){
+       lis[i].onmouseover = function(){
+            this.firstElementChild.children[0].className = 's';
+          
+       }
+       lis[i].onmouseout=function(){
+        this.firstElementChild.children[0].className = '';
+           
+       }
+    }
+</script>
+</html>

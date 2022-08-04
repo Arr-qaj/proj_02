@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入框改变</title>
+</head>
+<style>
+    .dox{
+        position: relative;
+    }
+    .img{
+        position: absolute;
+        top: 7px;
+        left: 152px;
+        width: 10px;
+        height: 10px;
+        background-color: pink;
+        cursor: pointer;
+    }
+    input{
+        outline: none;
+    }
+</style>
+<body>
+    <div class="dox">
+        <div class="img" id="img">
+
+        </div>
+        <label for="">
+            <input type="password" id="inp">
+        </label>
+    </div>
+</body>
+<script>
+//    var img = document.getElementById('img');
+//    var flag = true;
+//    var inp = document.getElementById('inp');
+//   img.onclick=function(){
+//     if(flag){
+//         inp.type='text';
+//         flag=false;
+//     }else{
+//         inp.type='password';
+//         flag=true;
+//     }
+    
+//   }
+    img.onclick=function(){
+        this.style='background-color:red';
+    }
+</script>
+</html>

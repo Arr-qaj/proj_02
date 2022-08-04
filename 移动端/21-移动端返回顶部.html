@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div{
+        
+        padding: 5px;
+        position: fixed;
+        width: 34px;
+        background-color: pink;
+        height: 30px;
+        bottom: 20px;
+        right: 5px;
+        display: none;
+    }
+    .sz{
+        width: 100%;
+        height: 3000px;
+        background-color: aquamarine;
+    }
+   
+</style>
+<body>
+    <div class="sz">
+        <div class="div">
+           
+            <span >返回顶部</span> 
+        </div>
+    </div>
+    
+</body>
+<script>
+    var div_but = document.querySelector('.div');
+    var flag=true;
+    window.addEventListener('scroll',function(){
+        //当页面滚动大于200时
+
+       console.log(window.pageYOffset);
+        if(window.pageYOffset>=200){
+            div_but.style.display='block';
+        }else{
+            div_but.style.display='none';
+        }
+
+    })
+    div_but.addEventListener('click',function(){
+        window.scroll(0,0);
+    });
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 600px;
+        height: 600px;
+        background-color: pink;
+        margin: 50px;
+        position: relative;
+        overflow: hidden;
+    }
+    .xiao{
+        width: 100px;
+        height: 100px;
+        background-color:aqua ;
+        position: absolute;
+        display: none;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="xiao"></div>
+    </div>
+</body>
+<script>
+    var div = document.querySelector('.box');
+    var xiao = document.querySelector('.xiao');
+    div.addEventListener('mousemove',function(e){
+        // console.log('坐标为：x:'+(e.pageX-50)+' Y:'+(e.pageY-50));
+       
+        xiao.style.display='block';
+        xiao.style.left=(e.pageX-50-50)+'px';
+        xiao.style.top=(e.pageY-50-50)+'px';
+        if((e.pageX>650||e.pageX<50)||(e.pageY>650||e.pageY<50)){
+            xiao.style.display='none';
+        xiao.style.left=0;
+        xiao.style.top=0;
+        }
+    });
+   
+</script>
+</html>

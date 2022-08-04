@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装js动画</title>
+  <style>
+    .red{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    
+  </style>
+</head>
+<body>
+    <button class="c1"> 走你 </button>
+    <button class="c2">走你2</button>
+    <div class="red">
+
+    </div>
+</body>
+<script src="./js/jscl.js"></script> 
+<script>
+    var fn = a=>{console.log(a);}
+   var p = fn(22);
+    var but = document.querySelector('.c1');
+    var c2 = document.querySelector('.c2');
+    var red = document.querySelector('.red');
+    but.addEventListener('click',function(){
+        move(red,400);
+    })
+    c2.addEventListener('click',function(){
+        move(red,900);
+    })
+</script>
+</html>

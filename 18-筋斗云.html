@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筋斗云</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .dig{
+        position: relative;
+        width: 500px;
+      height: 40px;
+      padding: 5px;
+        /* background-color: aqua; */
+      
+        background-color: aqua;
+    }
+    .dig ul{
+        position: absolute;
+        z-index: 5;
+    }
+    .dig ul li{
+        list-style: none;
+        float: left;
+        padding: 10px;
+         /* z-index: 5; */
+        margin-left: 10px;
+        /* background-color: pink; */
+        cursor: pointer;
+       
+    }
+    .cos{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        z-index: 2;
+        opacity: 0.7;
+        left: 10px;
+        top: 5px;
+
+    }
+</style>
+<body>
+    <div class="cos">
+
+    </div>
+    <div class="dig">
+        <ul>
+            <li >1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+<script>
+    //移动 是40px
+    var ul = document.querySelector('ul');
+    var cos = document.querySelector('.cos');
+    var olp = 10;
+    for(var i=0;i<ul.children.length;i++)
+    {
+        ul.children[i].setAttribute('index',i);
+        ul.children[i].addEventListener('mouseenter',function(){
+          move(cos,this.offsetLeft-0-5);
+        })
+        ul.children[i].addEventListener('click',function(){
+            olp=this.offsetLeft-0-5;
+            move(cos,olp);
+        })
+        ul.children[i].addEventListener('mouseleave',function(){
+            move(cos,olp);
+        })
+       
+    }
+
+    //写一个动画 
+    function move(obj,index,callback){
+        clearInterval(obj.time);
+        obj.time = setInterval(function(){
+            //获取到现在的位置
+           var t_index = obj.offsetLeft;
+           t_index = (index - t_index)/10;
+           t_index = t_index>0?Math.ceil(t_index):Math.floor(t_index);
+           obj.style.left = (obj.offsetLeft-0) + t_index+'px';
+        },20);
+    }
+</script>
+</html>

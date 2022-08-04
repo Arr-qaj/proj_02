@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .big{
+            position: relative;
+        }
+       .shang{
+            min-width: 170px;
+            padding: 5px;
+             border: 1px gray solid;
+             box-shadow: 0px 0px 11px 0px #2E3529;
+             display: none;
+       }
+       .shang::before{
+        width: 10px;
+        border: 10px transparent solid;
+        /* background-color: transparent; */
+        border-top: 10px #f0f0f0 solid;
+        content: '';
+        position: relative;
+        top: 36px;
+        left: 60px;
+        /* /* transform: scale(1.5); */
+
+       }
+       input{
+        margin-top: 8px;
+       }
+    </style>
+<body>
+    <div class="big">
+        <div class="shang">
+            
+        </div><br>
+         <input type="text" name="" id="">
+    </div>
+   
+</body>
+<script>
+    
+    var inpt = document.querySelector('input');
+    var shang = document.querySelector('.shang');
+    // inpt.addEventListener('keypress',function(e){
+    //     console.log(e.keyCode);
+    //     if(e.keyCode>=0){
+          
+    //         shang.style.display='inline-block';
+    //         var s_value = shang.innerText + e.key;
+    //         shang.innerText=s_value;
+    //         console.log(e.key);
+    //     }
+        
+    // });
+    // inpt.addEventListener('keyup',function(e){
+    //    if(e.keyCode==8){
+    //     shang.innerHTML = inpt.value;
+    //     if(shang.innerHTML == ''){
+    //         shang.style.display='none';
+    //     }
+    //    }
+    // });
+    inpt.addEventListener('keyup',function(){
+       
+        // console.log(this.value);
+        if(this.value==''){
+            shang.style.display='none';
+        }else{
+            console.log('来不');
+            shang.style.display='inline-block';
+            shang.innerHTML=this.value;
+        }
+        
+});
+inpt.addEventListener('blur',function(){
+    shang.style.display='none';
+});
+inpt.addEventListener('focus',function(){
+    if(this.value!=''){
+        shang.style.display='inline-block';
+
+    }else{
+        shang.style.display='none';
+    }
+});
+</script>
+</html>

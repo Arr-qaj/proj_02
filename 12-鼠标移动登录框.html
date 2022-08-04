@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big{
+        height: 100vh;
+        position: relative;
+        /* box-sizing: border-box; */
+    }
+    .login{
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        background-color: pink;
+        top: 50%;
+        left: 50%;
+        /* box-sizing: border-box; */
+        transform: translate(-50%,-50%);
+    }
+    .title{
+        height: 100px;
+        background-color: aqua;
+       cursor: all-scroll;
+    }
+</style>
+<body>
+    <div class="big">
+        <div class="login">
+            <div class="title"></div>
+        </div>
+    </div>
+   
+</body>
+<script>
+    var title  = document.querySelector('.title');
+    var login = document.querySelector('.login');
+    //1.鼠标按下 就获得鼠标在盒子内的坐标
+    title.addEventListener('mousedown',function(e){
+   
+        //盒子距离左边的距离 login.offsetLeft
+        //盒子距离顶部的距离 login.offsetTop
+        var x = e.pageX - login.offsetLeft;//算出鼠标距离盒子X轴的距离
+        var y = e.pageY - login.offsetTop;//算出鼠标距离盒子Y轴的距离
+        // document.addEventListener('');
+        //2.鼠标移动的时候，把鼠标在页面中的坐标，减去鼠标在盒子内的坐标就是模态框的left 和 top
+        document.addEventListener('mousemove',move);
+        function move(e){
+            login.style.left=e.pageX-x+'px';
+            login.style.top=e.pageY-y+'px';
+        }
+        //3.鼠标弹起，就让鼠标移动事件结束
+        document.addEventListener('mouseup',function(){
+            document.removeEventListener('mousemove',move);
+        });
+});
+</script>
+</html>

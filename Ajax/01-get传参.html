@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>提交</button>
+</body>
+<script type="text/javascript" src="./js/jquery.js">
+		
+</script>
+<script type="text/javascript">
+    $(function(){
+        $('button').click(
+        $.ajax({
+            type:'get',
+            url:'../移动端/19-移动端拖动元素.html',
+            data:{id:110},
+            success:function(rem){
+                console.log(rem);
+            }
+        })
+    )
+    })
+    // $('button').click(function(){
+    //     $.get('../移动端/19-移动端拖动元素.html',{id:110},function(e){
+    //         // location.href='http://www.baidu.com';
+    //     })
+    // })
+    
+</script>
+</html>

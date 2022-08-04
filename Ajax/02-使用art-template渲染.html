@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/template-web.js"></script>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <div class="svi"></div>
+</body>
+<script type="text/html" id="sbs">
+    姓名：{{name}} <br>
+    性别：{{sex}} <br>
+    年龄：{{age}} <br>
+    <input type="text" value={{name}}>
+</script>
+<script>
+    
+    var date={
+        name:'张三',
+        sex:'女',
+        age:'18',  
+    }
+  var htmls =  template('sbs',date);
+$('.svi').html(htmls);
+</script>
+</html>

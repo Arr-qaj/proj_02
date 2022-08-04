@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言</title>
+</head>
+<style>
+    li{
+        background-color: pink;
+    }
+    li button{
+        margin-left: 20px;
+    }
+    textarea{
+        resize: none;
+    }
+</style>
+<body>
+    <textarea name="txt" id="" cols="40" rows="10"></textarea>
+    <button id="ok">提交</button>
+    <ul>
+
+    </ul>
+</body>
+    <script>
+        var txt = document.querySelector('textarea');
+        var but = document.querySelector('#ok');
+        var urs = document.querySelector('ul');
+        but.onclick = function(){
+            console.log(txt.value);
+            var newli = document.createElement('li');
+            var remove  = document.createElement('button');
+            remove.innerHTML='删除';
+            remove.id='del';
+            remove.setAttribute('onclick','dels(this)');
+      
+            newli.innerHTML=txt.value;
+            newli.appendChild(remove);
+            txt.value='';
+            urs.appendChild(newli);
+        }
+
+        function dels(t){
+            // console.log();
+            urs.removeChild(t.parentNode);
+            // console.log('ssss');
+        }
+        
+    </script>
+</html>

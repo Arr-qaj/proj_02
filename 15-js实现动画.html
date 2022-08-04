@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .red{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin-top: 10px;
+    }
+</style>
+<body>
+    <button>动起来</button>
+    <div class="red"></div>
+</body>
+<script>
+    var but = document.querySelector('button');
+    var red = document.querySelector('.red'); 
+
+
+    but.addEventListener('click',function(){
+        move(red,500);
+    });
+//核心算法：（目标值-现在的位置） / 10
+    function move(obj,index){
+        clearInterval(obj.time);
+        //Math.ceil取整向上取整
+      
+        //因为在实际情况 中可能会有倒退的情况  所以当它为负数的时候 要向下取整 Math.floor
+        // 
+      
+       obj.time = setInterval(function(){
+        var move_index =(index-obj.offsetLeft)/10 ;//往上取整
+        move_index=  move_index>0?Math.ceil(move_index):Math.floor(move_index);
+       console.log(move_index);
+        console.log(obj.offsetLeft+move_index);
+            if(obj.offsetLeft==index)
+            clearInterval(obj.time);
+            obj.style.left=obj.offsetLeft+move_index+'px';
+        },15);
+    }
+</script>
+</html> 

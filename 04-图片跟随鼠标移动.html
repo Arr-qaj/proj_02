@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片跟随鼠标移动</title>
+</head>
+<style>
+    img{
+        position: absolute;
+    }
+</style>
+<body>
+    <img src="./img/654ca58f2928364737033b08fabc7c48.jpg" alt="" srcset="">
+</body>
+<script>
+    var imgs = document.querySelector('img');
+    document.addEventListener('mousemove',function(e){
+        var x = e.pageX;
+        var y = e.pageY;
+        // console.log(x+''+y);
+        imgs.style.left=x-15+'px';
+        imgs.style.top=y-15+'px';
+    });
+</script>
+</html>

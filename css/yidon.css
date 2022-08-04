@@ -1,0 +1,57 @@
+.big {
+  width: 9.33333333rem;
+  height: 3.73333333rem;
+  background-color: pink;
+  margin: auto;
+  margin-top: 0.26666667rem;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.big img {
+  width: 100%;
+  display: block;
+}
+.big .nms {
+  width: 600%;
+  margin-left: -9.33333333rem;
+}
+.big .nms li {
+  width: 9.33333333rem;
+  float: left;
+  list-style: none;
+}
+.big .nms li img {
+  width: 350px;
+}
+.big .nmb {
+  z-index: 2;
+  position: absolute;
+  font-size: 30px;
+  left: 50%;
+  bottom: 0.26666667rem;
+  transform: translateX(-50%);
+  color: gray;
+}
+.big .nmb li {
+  margin-left: 0.53333333rem;
+  list-style: circle;
+  float: left;
+  cursor: pointer;
+}
+.li_bian {
+  list-style: unset !important;
+  color: #fff;
+}
+.dingwei {
+  position: absolute;
+  background-color: lin;
+  width: 1.33333333rem;
+  height: 3.73333333rem;
+  opacity: 0.6;
+  display: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
